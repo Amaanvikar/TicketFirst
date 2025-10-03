@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticketfirst/Api/Helper/constant.dart';
+import 'package:ticketfirst/Constant/Widgets/progessIndicatorScreen.dart';
 import 'package:ticketfirst/Screens/Event/mTicketScreen.dart';
 
 class EventTicketConfirmationScreen extends StatefulWidget {
@@ -22,6 +23,7 @@ class EventTicketConfirmationScreen extends StatefulWidget {
 class _EventTicketConfirmationScreenState
     extends State<EventTicketConfirmationScreen> {
   int count = 0;
+  bool isButtonEnabled = true;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,16 @@ class _EventTicketConfirmationScreenState
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            StepIndicator(
+              steps: [
+                "Venue",
+                "Date & Time",
+                "Ticket",
+                "Review & Proceed to Pay",
+              ],
+              currentStep: 2,
+            ),
+            SizedBox(height: 10),
             // Venue Card
             Container(
               width: double.infinity,
@@ -103,11 +115,13 @@ class _EventTicketConfirmationScreenState
                     onAdd: () {
                       setState(() {
                         count = 1;
+                        isButtonEnabled = true;
                       });
                     },
                     onIncrement: () {
                       setState(() {
                         if (count < 10) count++;
+                        isButtonEnabled = true;
                       });
                     },
                     onDecrement: () {
@@ -116,6 +130,7 @@ class _EventTicketConfirmationScreenState
                           count--;
                         } else {
                           count = 0;
+                          isButtonEnabled = false;
                         }
                       });
                     },
@@ -129,19 +144,22 @@ class _EventTicketConfirmationScreenState
               width: double.infinity,
               height: 45,
               child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) => MTicketScreen(
-                            title: widget.title,
-                            timing: widget.timing,
-                            venueAddress: widget.venueAddress,
-                          ),
-                    ),
-                  );
-                },
+                onPressed:
+                    isButtonEnabled
+                        ? () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (context) => MTicketScreen(
+                                    title: widget.title,
+                                    timing: widget.timing,
+                                    venueAddress: widget.venueAddress,
+                                  ),
+                            ),
+                          );
+                        }
+                        : null,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: kPrimaryColor,
                   shape: RoundedRectangleBorder(

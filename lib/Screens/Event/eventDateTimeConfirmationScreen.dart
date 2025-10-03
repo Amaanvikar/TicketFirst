@@ -34,15 +34,15 @@ class _EventDatetimeConfirmationScreenState
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            // StepIndicator(
-            //   steps: [
-            //     "Venue",
-            //     "Date & Time",
-            //     "Ticket",
-            //     "Review & Proceed to Pay",
-            //   ],
-            //   currentStep: 1,
-            // ),
+            StepIndicator(
+              steps: [
+                "Venue",
+                "Date & Time",
+                "Ticket",
+                "Review & Proceed to Pay",
+              ],
+              currentStep: 1,
+            ),
             SizedBox(height: 10),
             Container(
               width: double.infinity,

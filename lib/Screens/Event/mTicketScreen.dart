@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticketfirst/Api/Helper/constant.dart';
+import 'package:ticketfirst/Constant/Widgets/progessIndicatorScreen.dart';
 
 class MTicketScreen extends StatefulWidget {
   final String title;
@@ -30,11 +31,26 @@ class _MTicketScreenState extends State<MTicketScreen> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
+            // StepIndicator(
+            //   steps: [
+            //     "Venue",
+            //     "Date & Time",
+            //     "Ticket",
+            //     "Review & Proceed to Pay",
+            //   ],
+            //   currentStep: 3,
+            // ),
+            SizedBox(height: 10),
             // M-Ticket Card
             CommonCard(
               title: Row(
                 children: [
-                  Radio(value: true, groupValue: true, onChanged: (_) {}),
+                  Radio(
+                    value: true,
+                    groupValue: true,
+                    onChanged: (_) {},
+                    activeColor: kPrimaryColor,
+                  ),
                   Text(
                     'M-Ticket',
                     style: TextStyle(fontWeight: FontWeight.bold),
@@ -145,7 +161,7 @@ class _MTicketScreenState extends State<MTicketScreen> {
                   elevation: 0,
                 ),
                 child: Text(
-                  'Proceed',
+                  'Proceed To Pay',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -169,7 +185,7 @@ class _MTicketScreenState extends State<MTicketScreen> {
         padding: const EdgeInsets.all(12.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [title, SizedBox(height: 10), content],
+          children: [title, SizedBox(height: 10), Divider(), content],
         ),
       ),
     );

@@ -28,20 +28,18 @@ class _EventConfirmationScreenState extends State<EventConfirmationScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Padding(
-          //   padding: const EdgeInsets.all(8.0),
-          //   child:
-
-          //   StepIndicator(
-          //     steps: [
-          //       "Venue",
-          //       "Date & Time",
-          //       "Ticket",
-          //       "Review & Proceed to Pay",
-          //     ],
-          //     currentStep: 0,
-          //   ),
-          // ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: StepIndicator(
+              steps: [
+                "Venue",
+                "Date & Time",
+                "Ticket",
+                "Review & Proceed to Pay",
+              ],
+              currentStep: 0,
+            ),
+          ),
           const Padding(
             padding: EdgeInsets.all(16.0),
             child: Text(

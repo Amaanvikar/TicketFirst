@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ticketfirst/Api/Helper/constant.dart';
+import 'package:ticketfirst/Screens/Event/eventConfirmationScreen.dart';
 import 'package:ticketfirst/Screens/Event/knowMoreInfoScreen.dart';
+import 'package:ticketfirst/Screens/Event/mTicketScreen.dart';
 
 class ComedyShowsScreen extends StatefulWidget {
   const ComedyShowsScreen({super.key});
@@ -147,7 +149,17 @@ class _ComedyShowsScreenState extends State<ComedyShowsScreen> {
                                   ),
                                 );
                               },
-                              onBookNow: () {},
+                              onBookNow: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder:
+                                        (context) => EventConfirmationScreen(
+                                          title: "title",
+                                        ),
+                                  ),
+                                );
+                              },
                             );
                           },
                         ),

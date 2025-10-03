@@ -39,7 +39,7 @@ class EventScreen extends ConsumerWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => EventOnBoardingScreen(),
+                            builder: (context) => ComedyShowsScreen(),
                           ),
                         );
                       },
@@ -54,7 +54,14 @@ class EventScreen extends ConsumerWidget {
                     buildColumnCard(
                       imagePath: "assets/images/Vector (1).png",
                       title: "Festivals & Cultural",
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => EventOnBoardingScreen(),
+                          ),
+                        );
+                      },
                     ),
                     const SizedBox(width: 20),
                     buildColumnCard(

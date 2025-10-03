@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticketfirst/Api/Helper/constant.dart';
+import 'package:ticketfirst/Screens/Event/mTicketScreen.dart';
 
 class EventTicketConfirmationScreen extends StatefulWidget {
   final String title;
@@ -128,7 +129,19 @@ class _EventTicketConfirmationScreenState
               width: double.infinity,
               height: 45,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) => MTicketScreen(
+                            title: widget.title,
+                            timing: widget.timing,
+                            venueAddress: widget.venueAddress,
+                          ),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: kPrimaryColor,
                   shape: RoundedRectangleBorder(

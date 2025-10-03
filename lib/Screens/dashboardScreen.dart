@@ -17,10 +17,9 @@ class DashboardScreen extends ConsumerWidget {
       backgroundColor: const Color(0xFFEDEEEE),
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.grey[900],
         title: const Text(
           "Flight Booking Application",
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
         ),
         elevation: 0,
       ),

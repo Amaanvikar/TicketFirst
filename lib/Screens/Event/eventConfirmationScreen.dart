@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticketfirst/Api/Helper/constant.dart';
+import 'package:ticketfirst/Constant/Widgets/progessIndicatorScreen.dart';
 import 'package:ticketfirst/Screens/Event/eventDateTimeConfirmationScreen.dart';
 
 class EventConfirmationScreen extends StatefulWidget {
@@ -27,6 +28,20 @@ class _EventConfirmationScreenState extends State<EventConfirmationScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Padding(
+          //   padding: const EdgeInsets.all(8.0),
+          //   child:
+
+          //   StepIndicator(
+          //     steps: [
+          //       "Venue",
+          //       "Date & Time",
+          //       "Ticket",
+          //       "Review & Proceed to Pay",
+          //     ],
+          //     currentStep: 0,
+          //   ),
+          // ),
           const Padding(
             padding: EdgeInsets.all(16.0),
             child: Text(

@@ -13,12 +13,13 @@ class EventScreen extends ConsumerWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         centerTitle: true,
         title: const Text(
           "Event Screen",
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
         ),
-        elevation: 0,
+        elevation: 2,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),

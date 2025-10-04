@@ -17,6 +17,8 @@ class _ComedyShowsScreenState extends State<ComedyShowsScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 2,
         title: Text(
           "Comedy Shows",
           style: TextStyle(fontWeight: FontWeight.bold),

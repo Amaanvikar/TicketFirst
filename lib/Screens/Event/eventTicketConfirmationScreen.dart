@@ -23,15 +23,18 @@ class EventTicketConfirmationScreen extends StatefulWidget {
 class _EventTicketConfirmationScreenState
     extends State<EventTicketConfirmationScreen> {
   int count = 0;
-  bool isButtonEnabled = true;
+  bool isButtonEnabled = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 2,
         title: Text(
           widget.title,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
       ),
       body: Padding(
@@ -54,7 +57,7 @@ class _EventTicketConfirmationScreenState
               width: double.infinity,
               padding: EdgeInsets.all(8.0),
               decoration: BoxDecoration(
-                color: Colors.grey[300],
+                color: Colors.grey[100],
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Column(
@@ -138,48 +141,71 @@ class _EventTicketConfirmationScreenState
                 ],
               ),
             ),
-
-            Spacer(),
-            SizedBox(
-              width: double.infinity,
-              height: 45,
-              child: ElevatedButton(
-                onPressed:
-                    isButtonEnabled
-                        ? () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder:
-                                  (context) => MTicketScreen(
-                                    title: widget.title,
-                                    timing: widget.timing,
-                                    venueAddress: widget.venueAddress,
-                                  ),
-                            ),
-                          );
-                        }
-                        : null,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: kPrimaryColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  elevation: 0,
-                ),
-                child: Text(
-                  'Proceed',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-                ),
-              ),
-            ),
           ],
         ),
       ),
+
+      bottomNavigationBar:
+          isButtonEnabled
+              ? Container(
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(color: Colors.grey.shade200, blurRadius: 6),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        "Total\n₹999",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 45,
+                      child: ElevatedButton(
+                        onPressed:
+                            isButtonEnabled
+                                ? () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder:
+                                          (context) => MTicketScreen(
+                                            title: widget.title,
+                                            timing: widget.timing,
+                                            venueAddress: widget.venueAddress,
+                                          ),
+                                    ),
+                                  );
+                                }
+                                : null,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: kPrimaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          elevation: 0,
+                        ),
+                        child: Text(
+                          'Proceed',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+              : SizedBox.shrink(),
     );
   }
 
@@ -192,6 +218,7 @@ class _EventTicketConfirmationScreenState
     required VoidCallback onDecrement,
   }) {
     return Card(
+      color: Colors.white,
       margin: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       elevation: 2,

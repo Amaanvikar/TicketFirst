@@ -14,14 +14,15 @@ class DashboardScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      backgroundColor: const Color(0xFFEDEEEE),
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         centerTitle: true,
         title: const Text(
           "Flight Booking Application",
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
         ),
-        elevation: 0,
+        elevation: 2,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
@@ -400,7 +401,7 @@ class DashboardScreen extends ConsumerWidget {
           boxShadow: const [
             BoxShadow(
               color: Colors.black12,
-              blurRadius: 6,
+              blurRadius: 1,
               offset: Offset(0, 3),
             ),
           ],
@@ -430,6 +431,7 @@ class DashboardScreen extends ConsumerWidget {
   Widget _buildImageCard(String imagePath) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
+
       child: Image.asset(imagePath, width: 300, height: 200, fit: BoxFit.cover),
     );
   }

@@ -24,7 +24,10 @@ class _EventDatetimeConfirmationScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 2,
         title: Text(
           widget.title,
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -48,7 +51,7 @@ class _EventDatetimeConfirmationScreenState
               width: double.infinity,
               padding: EdgeInsets.all(8.0),
               decoration: BoxDecoration(
-                color: Colors.grey[300],
+                color: Colors.grey[100],
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Text(
@@ -158,6 +161,7 @@ class _EventDatetimeConfirmationScreenState
     required VoidCallback? onTimeTap,
   }) {
     return Card(
+      color: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       elevation: 2,
       child: Padding(

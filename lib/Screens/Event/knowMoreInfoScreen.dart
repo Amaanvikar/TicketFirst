@@ -30,6 +30,8 @@ class _KnowMoreInfoScreenState extends State<KnowMoreInfoScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 2,
         title: Text(
           widget.title,
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),

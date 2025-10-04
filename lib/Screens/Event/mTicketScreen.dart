@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ticketfirst/Api/Helper/constant.dart';
 import 'package:ticketfirst/Constant/Widgets/progessIndicatorScreen.dart';
+import 'package:ticketfirst/Screens/Event/eventBookingScreen.dart';
 
 class MTicketScreen extends StatefulWidget {
   final String title;
@@ -21,7 +22,41 @@ class _MTicketScreenState extends State<MTicketScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        elevation: 2,
+        backgroundColor: Colors.white,
+        leading: BackButton(
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  backgroundColor: Colors.white,
+                  title: Text(
+                    "Your selected seats will be unblocked and may not be available later if you cancle!",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Text('No'),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).pop();
+                      },
+                      child: Text('Yes, Cancel'),
+                    ),
+                  ],
+                );
+              },
+            );
+          },
+        ),
         title: Text(
           "Confirm Tickets",
           style: TextStyle(fontWeight: FontWeight.bold),
@@ -152,7 +187,14 @@ class _MTicketScreenState extends State<MTicketScreen> {
               width: double.infinity,
               height: 45,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EventBookingScreen(),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: kPrimaryColor,
                   shape: RoundedRectangleBorder(
@@ -178,6 +220,7 @@ class _MTicketScreenState extends State<MTicketScreen> {
 
   Widget CommonCard({required Widget title, required Widget content}) {
     return Card(
+      color: Colors.white,
       margin: EdgeInsets.symmetric(vertical: 8),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       elevation: 2,

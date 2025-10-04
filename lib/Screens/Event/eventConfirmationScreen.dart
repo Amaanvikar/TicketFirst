@@ -19,7 +19,10 @@ class _EventConfirmationScreenState extends State<EventConfirmationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 2,
         title: Text(
           widget.title,
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -60,9 +63,8 @@ class _EventConfirmationScreenState extends State<EventConfirmationScreen> {
               venueAddress:
                   "Nashik City Centre Mall, Untwadi Road Lavate Nagar, Nashik, Maharashtra",
               timing: "Event Timing: 7:00 PM - 10:00 PM",
-              description:
-                  "College Road, Shahid circle, East Nashik"
-                  "View on Map",
+              description: "College Road, Shahid circle, East Nashik",
+
               showMore: showMoreDetails,
               onKnowMoreTap: () {
                 setState(() {
@@ -83,6 +85,7 @@ class _EventConfirmationScreenState extends State<EventConfirmationScreen> {
                   ),
                 );
               },
+              onMapTap: () {},
             ),
           ),
 
@@ -168,6 +171,7 @@ class _EventConfirmationScreenState extends State<EventConfirmationScreen> {
     required bool showMore,
     required VoidCallback onAddressTap,
     required VoidCallback onKnowMoreTap,
+    required VoidCallback onMapTap,
   }) {
     return Container(
       width: double.infinity,
@@ -218,9 +222,24 @@ class _EventConfirmationScreenState extends State<EventConfirmationScreen> {
             ),
             if (showMore) ...[
               const SizedBox(height: 8),
-              Text(
-                description,
-                style: const TextStyle(fontSize: 13, color: Colors.black87),
+              InkWell(
+                onTap: onMapTap,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      description,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.black87,
+                      ),
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.location_on, color: kPrimaryColor),
+                      onPressed: onAddressTap,
+                    ),
+                  ],
+                ),
               ),
             ],
           ],

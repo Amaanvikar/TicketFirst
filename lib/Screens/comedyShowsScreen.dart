@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ticketfirst/Api/Helper/constant.dart';
 import 'package:ticketfirst/Constant/Widgets/searchField.dart';
 import 'package:ticketfirst/Screens/Event/EventTypeScreen.dart';
-import 'package:ticketfirst/Screens/Event/eventConfirmationScreen.dart';
-import 'package:ticketfirst/Screens/Event/knowMoreInfoScreen.dart';
 
 class ComedyShowsScreen extends StatefulWidget {
   const ComedyShowsScreen({super.key});

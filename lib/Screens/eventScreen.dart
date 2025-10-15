@@ -6,7 +6,6 @@ import 'package:ticketfirst/Screens/comedyShowsScreen.dart';
 import 'package:ticketfirst/Screens/eventOnboardingScreen.dart';
 import 'package:ticketfirst/Screens/Event/SeeAllEventListScreen.dart';
 
-
 final counterProvider = StateProvider<int>((ref) => 0);
 
 class EventScreen extends ConsumerWidget {
@@ -38,14 +37,19 @@ class EventScreen extends ConsumerWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (Context) => SeeAllEventListScreen()));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (Context) => SeeAllEventListScreen(),
+                      ),
+                    );
                   },
                   child: Text(
                     'See All',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 20,
-                      color: Colors.deepOrangeAccent[700],
+                      color: kPrimaryColor,
                     ),
                   ),
                 ),
